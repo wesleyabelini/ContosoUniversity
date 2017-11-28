@@ -167,6 +167,10 @@
     <Compile Include="Migrations\201711271958319_BaseStudentGrade1.Designer.cs">
       <DependentUpon>201711271958319_BaseStudentGrade1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201711280347163_StudentinHome.cs" />
+    <Compile Include="Migrations\201711280347163_StudentinHome.Designer.cs">
+      <DependentUpon>201711280347163_StudentinHome.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Course.cs" />
     <Compile Include="Models\Enrollment.cs" />
@@ -255,6 +259,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201711271958319_BaseStudentGrade1.resx">
       <DependentUpon>201711271958319_BaseStudentGrade1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711280347163_StudentinHome.resx">
+      <DependentUpon>201711280347163_StudentinHome.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
