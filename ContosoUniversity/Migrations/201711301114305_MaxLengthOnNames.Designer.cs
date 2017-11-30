@@ -7,13 +7,13 @@ namespace ContosoUniversity.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class BaseStudentGrade1 : IMigrationMetadata
+    public sealed partial class MaxLengthOnNames : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(BaseStudentGrade1));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(MaxLengthOnNames));
         
         string IMigrationMetadata.Id
         {
-            get { return "201711271958319_BaseStudentGrade1"; }
+            get { return "201711301114305_MaxLengthOnNames"; }
         }
         
         string IMigrationMetadata.Source

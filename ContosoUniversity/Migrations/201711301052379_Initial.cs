@@ -24,6 +24,7 @@ namespace ContosoUniversity.Migrations
                         EnrollmentID = c.Int(nullable: false, identity: true),
                         CourseID = c.Int(nullable: false),
                         StudentID = c.Int(nullable: false),
+                        Grade = c.Int(),
                     })
                 .PrimaryKey(t => t.EnrollmentID)
                 .ForeignKey("dbo.Course", t => t.CourseID, cascadeDelete: true)
@@ -39,6 +40,7 @@ namespace ContosoUniversity.Migrations
                         LastName = c.String(),
                         FirstMidName = c.String(),
                         EnrollmentDate = c.DateTime(nullable: false),
+                        Secret = c.String(),
                     })
                 .PrimaryKey(t => t.ID);
             
