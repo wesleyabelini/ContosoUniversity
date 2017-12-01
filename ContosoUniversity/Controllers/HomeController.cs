@@ -20,14 +20,23 @@ namespace ContosoUniversity.Controllers
 
         public ActionResult About()
         {
-            IQueryable<EnrollmentDataGroup> data =
-                from student in db.Students
-                group student by student.EnrollmentDate into dateGroup
-                select new EnrollmentDataGroup()
-                {
-                    EnrollmentDate = dateGroup.Key,
-                    StudentCount = dateGroup.Count()
-                };
+            //Commenting out LINQ to show how to do the same thing in SQL
+
+            //IQueryable<EnrollmentDataGroup> data =
+            //    from student in db.Students
+            //    group student by student.EnrollmentDate into dateGroup
+            //    select new EnrollmentDataGroup()
+            //    {
+            //        EnrollmentDate = dateGroup.Key,
+            //        StudentCount = dateGroup.Count()
+            //    };
+
+            //SQL version of the avobe LINQ code.
+
+            string query = "SELECT EnrollmentDate, COUNT(*) AS StudentCount " +
+                "FROM Person WHERE Discriminator = 'Student' GROUP BY EnrollmentDate";
+
+            IEnumerable<EnrollmentDataGroup> data = db.Database.SqlQuery<EnrollmentDataGroup>(query);
 
             return View(data.ToList());
         }

@@ -22,7 +22,11 @@ namespace ContosoUniversity.Models
         [Display(Name ="Start Date")]
         public DateTime StartDAte { get; set; }
 
+        [Display(Name ="Administrator")]
         public int? InstructorID { get; set; }
+
+        [Timestamp]
+        public byte[] RowVersion { get; set; }
 
         public virtual Instructor Administrator { get; set; }
         public virtual ICollection<Course> Courses { get; set; }
@@ -31,4 +35,6 @@ namespace ContosoUniversity.Models
 
 /*
  * A department may have many courses, so there's a Courses navigation property
+ * 
+ * timestamp attribute specifies that this column will bne included in the where cluase of update and delete
  * */

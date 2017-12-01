@@ -19,8 +19,11 @@ namespace ContosoUniversity.Controllers
         // GET: Courses
         public ActionResult Index()
         {
-            var courses = db.Courses.Include(c => c.Department);
+            var courses = db.Courses;
+            var sql = courses.ToString();
+
             return View(courses.ToList());
+            Page 280
         }
 
         // GET: Courses/Details/5
@@ -161,6 +164,23 @@ namespace ContosoUniversity.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+
+        public ActionResult UpdateCourseCredits()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult UpdateCourseCredits(int? multiplier)
+        {
+            if(multiplier != null)
+            {
+                ViewBag.RowsAffected = 
+                    db.Database.ExecuteSqlCommand("UPDATE Course SET Credits = Credits * {0}", multiplier);
+            }
+
+            return View();
         }
     }
 }

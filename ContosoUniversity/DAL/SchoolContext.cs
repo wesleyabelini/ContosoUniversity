@@ -21,6 +21,7 @@ namespace ContosoUniversity.DAL
         public DbSet<Department> Departments { get; set; }
         public DbSet<Instructor> Instructors { get; set; }
         public DbSet<OfficeAssignment> OfficeAssignments { get; set; }
+        public DbSet<Person> People { get; set; }
 
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
@@ -32,6 +33,7 @@ namespace ContosoUniversity.DAL
                 .Map(t => t.MapLeftKey("CourseID")
                 .MapRightKey("InstructorID")
                 .ToTable("CourseInstructor"));
+            modelBuilder.Entity<Department>().MapToStoredProcedures(); //for using stored procedures for database access.
 
             modelBuilder.Entity<Instructor>()
                 .HasOptional(p => p.OfficeAssignment).WithRequired(p => p.Instructor);
